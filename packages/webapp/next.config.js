@@ -1,4 +1,3 @@
-const withType = require('@zeit/next-typescript')
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
 
@@ -12,10 +11,8 @@ const withSassModules = withCSS => {
   return withSass(withCSS)
 }
 
-module.exports = withType(
-  withSassModules(
-    withCSS({
-      cssModules: false
-    })
-  )
+module.exports = withSassModules(
+  withCSS({
+    cssModules: false
+  })
 )
