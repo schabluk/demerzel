@@ -1,0 +1,8 @@
+export { default as colors, hexToRGB } from './colors'
+export { default as print } from './console'
+export { default as debounce } from './debounce'
+export { default as throttle } from './throttle'
+export { default as flatten } from './flatten'
+export { isNode, isElement } from './dom'
+export { storageAvailable } from './storage'
+export { cartesian, powerset } from './sets'

@@ -1,0 +1,26 @@
+{
+  "name": "demerzel",
+  "private": true,
+  "scripts": {
+    "boot": "lerna bootstrap",
+    "build": "lerna run --no-private build",
+    "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build",
+    "format": "prettier --write \"packages/src/**/*.{js,jsx}\"",
+    "test": "lerna run --no-private --parallel test"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "Łukasz Schabek",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "husky": "^1.3.1",
+    "jest": "^23.6.0",
+    "lerna": "^3.10.5",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "tslint": "^5.12.1",
+    "typescript": "^3.2.2"
+  }
+}

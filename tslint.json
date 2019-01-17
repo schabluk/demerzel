@@ -1,0 +1,19 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single", "jsx-single"],
+    "space-before-function-paren": [true, "always"],
+  },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts"
+    ]
+  },
+  "rulesDirectory": []
+}
