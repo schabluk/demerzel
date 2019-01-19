@@ -1,0 +1,17 @@
+{
+  "editor.minimap.enabled": false,
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "files.autoSave": "off",
+  "tslint.autoFixOnSave": true,
+  "tslint.packageManager": "yarn",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.enable": true
+}
