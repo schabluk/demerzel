@@ -39,6 +39,5 @@
     "rimraf": "^2.6.3",
     "strapi": "3.0.0-alpha.19",
     "typescript": "^3.2.4"
-  },
-  "dependencies": {}
+  }
 }
