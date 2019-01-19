@@ -9,13 +9,17 @@
     "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build",
     "format": "prettier --write \"packages/src/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "precommit": "lint-staged",
     "pretest": "eslint packages",
     "test": "lerna run --no-private --parallel test"
   },
   "workspaces": [
     "packages/*"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{js,jsx}": [
       "pretty-quick --staged",
