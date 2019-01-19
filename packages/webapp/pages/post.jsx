@@ -8,10 +8,7 @@ import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
 
 const Post = withRouter(({ screenSize, show }) => (
-  <Layout
-    screenSize={screenSize}
-    header={<Navigation />}
-  >
+  <Layout screenSize={screenSize} header={<Navigation />}>
     <Container style={{ flex: '1' }}>
       <h1>{show.name}</h1>
       <div style={{ display: 'flex' }}>
@@ -22,7 +19,7 @@ const Post = withRouter(({ screenSize, show }) => (
   </Layout>
 ))
 
-Post.getInitialProps = async function getInitialProps (context) {
+Post.getInitialProps = async function getInitialProps(context) {
   const { id } = context.query
   const res = await Fetch(`https://api.tvmaze.com/shows/${id}`)
   const show = await res.json()

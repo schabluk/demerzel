@@ -8,13 +8,8 @@ import Layout from '../layout/Layout'
 import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
 
-const Page = ({
-  width: screenSize, classes, store, isServer, data
-}) => (
-  <Layout
-    screenSize={screenSize}
-    header={<Navigation />}
-  >
+const Page = ({ width: screenSize, classes, store, isServer, data }) => (
+  <Layout screenSize={screenSize} header={<Navigation />}>
     <Container style={{ flex: '1' }}>
       <section>
         <p>
@@ -35,22 +30,22 @@ const Page = ({
   </Layout>
 )
 
-Page.getInitialProps = async function getInitialProps () {
+Page.getInitialProps = async function getInitialProps() {
   const isServer = typeof window === 'undefined'
   const res = await Fetch('https://api.tvmaze.com/search/shows?q=batman')
   const data = await res.json()
 
   return {
     isServer,
-    data
+    data,
   }
 }
 
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    padding: theme.spacing.unit * 2
-  }
+    padding: theme.spacing.unit * 2,
+  },
 })
 
 export default withStyles(styles)(withTheme()(withWidth()(Page)))

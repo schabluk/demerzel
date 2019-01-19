@@ -1,14 +1,6 @@
 import React, { useState } from 'react'
 import { withStyles, withTheme } from '@material-ui/core/styles'
-import {
-  Button,
-  Paper,
-  Stepper,
-  Step,
-  StepLabel,
-  StepContent,
-  withWidth
-} from '@material-ui/core'
+import { Button, Paper, Stepper, Step, StepLabel, StepContent, withWidth } from '@material-ui/core'
 
 import Layout from '../layout/Layout'
 import Container from '../layout/Container'
@@ -31,15 +23,15 @@ const Page = ({ width: screenSize, classes, store }) => {
   const [activeStep, setActiveStep] = useState(0)
   const finish = activeStep === steps.length - 1
 
-  function handleNext () {
+  function handleNext() {
     setActiveStep(prev => prev + 1)
   }
 
-  function handleBack () {
+  function handleBack() {
     setActiveStep(prev => prev - 1)
   }
 
-  function handleReset () {
+  function handleReset() {
     setActiveStep(0)
   }
 
@@ -51,32 +43,28 @@ const Page = ({ width: screenSize, classes, store }) => {
             onClick={() => setCount(count + 1)}
             variant='contained'
             color='secondary'
-            className={classes.button}
-          >
+            className={classes.button}>
             <Icon name={'user'} /> {count}
           </Button>
           <Button
             onClick={() => send('TOGGLE')}
             variant='contained'
             color='primary'
-            className={classes.button}
-          >
+            className={classes.button}>
             {current.value}
           </Button>
           <Button
             onClick={handleBack}
             variant='contained'
             disabled={activeStep === 0}
-            className={classes.button}
-          >
+            className={classes.button}>
             Back
           </Button>
           <Button
             onClick={finish ? handleReset : handleNext}
             variant='contained'
             color={finish ? 'secondary' : 'primary'}
-            className={classes.button}
-          >
+            className={classes.button}>
             {finish ? 'Finish' : 'Next'}
           </Button>
         </div>
@@ -84,14 +72,11 @@ const Page = ({ width: screenSize, classes, store }) => {
           <Stepper
             activeStep={activeStep}
             orientation={smallScreen ? 'vertical' : 'horizontal'}
-            alternativeLabel={!smallScreen}
-          >
+            alternativeLabel={!smallScreen}>
             {steps.map(({ label, content }, index) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>
-                {
-                  smallScreen && <StepContent>{content}</StepContent>
-                }
+                {smallScreen && <StepContent>{content}</StepContent>}
               </Step>
             ))}
           </Stepper>
@@ -104,26 +89,26 @@ const Page = ({ width: screenSize, classes, store }) => {
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
-    padding: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 2,
   },
   backButton: {
-    marginRight: theme.spacing.unit
+    marginRight: theme.spacing.unit,
   },
   instructions: {
     marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit
+    marginBottom: theme.spacing.unit,
   },
   button: {
     marginRight: 8,
-    minWidth: 100
+    minWidth: 100,
   },
   grow: {
-    flexGrow: 1
+    flexGrow: 1,
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20
-  }
+    marginRight: 20,
+  },
 })
 
 export default withStyles(styles)(withTheme()(withWidth()(Page)))

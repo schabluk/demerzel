@@ -11,7 +11,7 @@ import App, { Container } from 'next/app'
 import { getStore } from '../stores'
 
 export default class Application extends App {
-  static async getInitialProps ({ Component, router, ctx }) {
+  static async getInitialProps({ Component, router, ctx }) {
     const isServer = typeof window === 'undefined'
     const store = getStore(isServer)
 
@@ -24,11 +24,11 @@ export default class Application extends App {
     return {
       initialState: getSnapshot(store),
       isServer,
-      pageProps
+      pageProps,
     }
   }
 
-  render () {
+  render() {
     const { Component, pageProps, initialState, isServer } = this.props
 
     /**

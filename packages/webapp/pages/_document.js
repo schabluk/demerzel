@@ -13,36 +13,40 @@ import { LanguageContext } from '../utils/context'
 
 /* eslint-disable react/no-danger */
 class MainDocument extends Document {
-  static async getInitialProps (ctx) {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
 
     ctx.renderPage = () =>
       originalRenderPage({
-        enhanceApp: App => props => sheet.collectStyles(<App {...props} />)
+        enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
       })
 
     const initialProps = await Document.getInitialProps(ctx)
 
     return {
       ...initialProps,
-      styles: [...initialProps.styles, ...sheet.getStyleElement()]
+      styles: [...initialProps.styles, ...sheet.getStyleElement()],
     }
   }
 
-  render () {
+  render() {
     const language = this.context
 
     return (
       <html lang={language}>
         <Head>
-          <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no' />
-          <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500|Lato' rel='stylesheet' />
+          <meta
+            name='viewport'
+            content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'
+          />
+          <link
+            href='https://fonts.googleapis.com/css?family=Roboto:300,400,500|Lato'
+            rel='stylesheet'
+          />
           <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet' />
           <link href='/static/css/fa-all.min.css' rel='stylesheet' />
-          {
-            this.props.style
-          }
+          {this.props.style}
         </Head>
         <body>
           <Main />
