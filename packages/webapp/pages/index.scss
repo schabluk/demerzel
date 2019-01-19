@@ -1,0 +1,10 @@
+.actions {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 0;
+}
+
+.actions > * + * {
+  margin-left: 4px !important;
+}

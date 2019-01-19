@@ -1,0 +1,18 @@
+.links {
+  padding: .5rem;
+}
+
+.links > a {
+  background-color: #ddd;
+  border-radius: 2px;
+  padding: 4px;
+  text-decoration: none;
+}
+
+.links > a:hover {
+  background-color: #ccc;
+}
+
+.links > * + * {
+  margin-left: 8px;
+}

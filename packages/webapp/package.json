@@ -6,9 +6,11 @@
   "license": "UNLICENCED",
   "scripts": {
     "deploy": "now",
-    "dev": "next dev",
+    "dev:client": "next dev",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start:client": "next start",
+    "start": "NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -17,7 +19,9 @@
     "@material-ui/styles": "^3.0.0-alpha.8",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
     "classnames": "^2.2.6",
+    "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
     "mobx": "^5.8.0",
     "mobx-react": "^5.4.3",
@@ -30,6 +34,9 @@
     "xstate": "^4.2.4"
   },
   "devDependencies": {
+    "@types/next": "^7.0.6",
+    "@types/react": "^16.7.20",
+    "@types/react-dom": "^16.0.11",
     "babel-plugin-styled-components": "^1.10.0",
     "node-sass": "^4.11.0"
   }
