@@ -4,5 +4,5 @@ module.exports = {
   ...base,
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   name: 'webapp',
-  displayName: 'WebApplication',
+  displayName: 'Web Application',
 }

@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from 'react-testing-library'
 
-import Page from './foo'
+import Foo from './Foo'
 
-describe('With React Testing Library', () => {
+describe('JavaScript with React Testing Library', () => {
   it('Shows "Hello world!"', () => {
-    const { getByText } = render(<Page />)
+    const { getByText } = render(<Foo />)
 
     expect(getByText('Hello World!')).not.toBeNull()
   })
