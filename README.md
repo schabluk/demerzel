@@ -4,8 +4,8 @@ The repository contains basic setup to quickly bootstrap a Web Application.
 
 ## Features
 
-- Server Side Rendering [SSR]
-- Progressive Web App [PWA]
+- Server Side Rendering [SSR].
+- Progressive Web App [PWA].
 - Code Linting and Prettifying.
 - Configured testing framework.
 - TypeScript support for type safety code.
@@ -62,11 +62,27 @@ cd packages/webapp/
 yarn dev
 ```
 
-## Development cycle
+# Development cycle
 
 Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated TS components only.
 
 ![Development Cycle](images/development-cycle.png)
+
+## Testing
+
+Tests are executer using [Jest](https://jestjs.io/) runner, and written with [React Testing Library](https://testing-library.com/react) for React components.
+
+The main Jest configuration files is located in the top-level project directory: [jest.config.js](jest.config.js), however, a package can extend main configuration from it's local directory, like this: [packages/webapp/jest.config.js](packages/webapp/jest.config.js).
+
+Example tests:
+
+- for JavaScript: [packages/webapp/modules/Foo.test.jsx](packages/webapp/modules/Foo.test.jsx)
+- for TypeScript: [packages/webapp/modules/Bar.test.tsx](packages/webapp/modules/Bar.test.tsx)
+
+ToDo:
+
+- testing Node.js modules.
+- end to end with Cypress.
 
 # Workflow commands
 
