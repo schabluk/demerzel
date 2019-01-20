@@ -84,6 +84,12 @@ ToDo:
 - testing Node.js modules.
 - end to end with Cypress.
 
+## Quality
+
+The code quality is assured with the help of [ESLint](https://eslint.org) and [Prettier](https://prettier.io). The settings for [code styling](.eslintrc.js) and [formating](.prettierrc) are higly opinionated, but they must be followed to keep consistency across the whole codebase.
+
+The main [package.json](package.json) file is configured with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged), to prevent from commiting baddly written, or erroneous code to the repository.
+
 # Workflow commands
 
 Here are some commands for performing daily tasks in monorepo. To learn about all the commands offered by Lerna, see the [github docs](https://github.com/lerna/lerna).
