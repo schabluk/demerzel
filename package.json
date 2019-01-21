@@ -45,7 +45,6 @@
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3",
     "pretty-quick": "^1.10.0",
-    "react-testing-library": "^5.4.4",
     "rimraf": "^2.6.3",
     "strapi": "3.0.0-alpha.19",
     "ts-jest": "^23.10.5",
