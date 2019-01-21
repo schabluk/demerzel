@@ -9,7 +9,6 @@
     "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build",
     "format": "prettier --write \"packages/src/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "pretest": "eslint packages",
     "test": "lerna run --no-private --parallel test"
   },
   "workspaces": [
