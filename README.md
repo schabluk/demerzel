@@ -72,7 +72,7 @@ Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written
 
 Tests are executer using [Jest](https://jestjs.io/) runner, and written with [React Testing Library](https://testing-library.com/react) for React components.
 
-The main Jest configuration files is located in the top-level project directory: [jest.config.js](jest.config.js), however, a package can extend main configuration from it's local directory, like this: [packages/webapp/jest.config.js](packages/webapp/jest.config.js).
+The main Jest configuration files is located in the top-level project directory: [jest.config.js](jest.config.js), however, a package can extend this configuration from it's local directory, like here: [packages/webapp/jest.config.js](packages/webapp/jest.config.js).
 
 Example tests:
 
@@ -89,6 +89,10 @@ ToDo:
 The code quality is assured with the help of [ESLint](https://eslint.org) and [Prettier](https://prettier.io). The settings for [code styling](.eslintrc.js) and [formating](.prettierrc) are higly opinionated, but they must be followed to keep consistency across the whole codebase.
 
 The main [package.json](package.json) file is configured with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged), to prevent from commiting baddly written, or erroneous code to the repository.
+
+ToDo:
+
+- add test runner to lint-staged.
 
 # Workflow commands
 
