@@ -8,8 +8,11 @@ const map = f => a => a.map(f)
 const reduce = (f, acc) => a => a.reduce(f, acc)
 const pipe = (f, g) => x => g(f(x))
 
-const flattenEach = map(x => Array.isArray(x) ? flatten(x) : x)
+const flattenEach = map(x => (Array.isArray(x) ? flatten(x) : x))
 const flattenDeep = reduce((a, b) => a.concat(b), [])
-const flatten = pipe(flattenEach, flattenDeep)
+const flatten = pipe(
+  flattenEach,
+  flattenDeep,
+)
 
 export default flatten

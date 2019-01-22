@@ -1,4 +1,4 @@
-export default function throttle (callback, wait, context = this) {
+export default function throttle(callback, wait, context = this) {
   let timeout = null
   let callbackArgs = null
 
@@ -7,7 +7,7 @@ export default function throttle (callback, wait, context = this) {
     timeout = null
   }
 
-  return function () {
+  return function() {
     if (!timeout) {
       callbackArgs = arguments
       timeout = setTimeout(later, wait)
