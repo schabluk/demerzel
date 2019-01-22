@@ -15,7 +15,7 @@ const withSassModules = withCSS => {
 module.exports = withType(
   withSassModules(
     withCSS({
-      cssModules: false
-    })
-  )
+      cssModules: false,
+    }),
+  ),
 )

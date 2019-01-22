@@ -22,17 +22,17 @@ class ErrorBoundry extends React.Component {
     /** Set error state from props */
     hasError: PropTypes.bool,
     /** Callback method called if error occured. */
-    onError: PropTypes.func
+    onError: PropTypes.func,
   }
 
   static defaultProps = {
     hasError: false,
-    onError: () => {}
+    onError: () => {},
   }
 
-  state = { hasError: this.props.hasError, error: null };
+  state = { hasError: this.props.hasError, error: null }
 
-  static getDerivedStateFromError (error) {
+  static getDerivedStateFromError(error) {
     return { hasError: true, error }
   }
 
@@ -48,9 +48,7 @@ class ErrorBoundry extends React.Component {
       return (
         <div style={error}>
           <i className='fas fa-2x fa-bug' />
-          <div style={{ height: '14px', margin: '0rem 0.5rem' }}>
-            Error occured
-          </div>
+          <div style={{ height: '14px', margin: '0rem 0.5rem' }}>Error occured</div>
         </div>
       )
     }

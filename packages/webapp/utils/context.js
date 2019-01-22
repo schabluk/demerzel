@@ -14,14 +14,12 @@ export const LanguageContext = React.createContext('en')
 
 const Providers = ({ children }) => (
   <ThemeContext.Provider>
-    <LanguageContext.Provider>
-      {children}
-    </LanguageContext.Provider>
+    <LanguageContext.Provider>{children}</LanguageContext.Provider>
   </ThemeContext.Provider>
 )
 
 Providers.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Providers

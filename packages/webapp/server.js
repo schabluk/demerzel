@@ -9,7 +9,8 @@ const handle = app.getRequestHandler()
 
 mobx.useStaticRendering(true)
 
-app.prepare()
+app
+  .prepare()
   .then(() => {
     const server = express()
 
@@ -21,7 +22,7 @@ app.prepare()
 
     server.get('*', (req, res) => handle(req, res))
 
-    server.listen(3000, (err) => {
+    server.listen(3000, err => {
       if (err) throw err
       // console.log('> Ready on http://localhost:3000')
     })
