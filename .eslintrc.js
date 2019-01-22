@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['standard', 'standard-react', 'prettier', 'prettier/react'],
+  extends: ['standard', 'standard-react', 'plugin:prettier/recommended', 'prettier/react'],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
@@ -16,7 +16,8 @@ module.exports = {
   },
   plugins: ['react', 'prettier'],
   rules: {
-    indent: ['error', 2],
+    'prettier/prettier': 'error',
+    // indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
