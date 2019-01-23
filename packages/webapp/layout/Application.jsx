@@ -14,8 +14,8 @@ const Application = styled.div`
 
 Application.defaultProps = {
   theme: {
-    backgroundColor: '#fff'
-  }
+    backgroundColor: '#fff',
+  },
 }
 
 export default Application

@@ -10,8 +10,8 @@ const Footer = styled.footer`
 
 Footer.defaultProps = {
   theme: {
-    baseColor: '#eee'
-  }
+    baseColor: '#eee',
+  },
 }
 
 export default Footer

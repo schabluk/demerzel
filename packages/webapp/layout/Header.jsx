@@ -9,8 +9,8 @@ const Header = styled.header`
 
 Header.defaultProps = {
   theme: {
-    baseColor: '#eee'
-  }
+    baseColor: '#eee',
+  },
 }
 
 export default Header

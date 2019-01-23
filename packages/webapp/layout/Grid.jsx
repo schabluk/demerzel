@@ -14,7 +14,7 @@ Grid.defaultProps = {
     'h h h h h h h h h h h h'
     'n c c c c c c c c c c c'
     'f f f f f f f f f f f f'
-  `
+  `,
 }
 
 export default Grid

@@ -8,8 +8,8 @@ const Main = styled.main`
 
 Main.defaultProps = {
   theme: {
-    baseColor: '#eee'
-  }
+    baseColor: '#eee',
+  },
 }
 
 export default Main

@@ -9,8 +9,8 @@ const Sidebar = styled.nav`
 
 Sidebar.defaultProps = {
   theme: {
-    baseColor: '#eee'
-  }
+    baseColor: '#eee',
+  },
 }
 
 export default Sidebar
