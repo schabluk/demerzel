@@ -29,7 +29,7 @@ const Service = {
       try {
         return await get(`${show}/shows/${id}`)
       } catch ({ message }) {
-        throw new Error(`Failed to request for epizode id ${id}: ${message}`)
+        throw new Error(`Failed to request for show id ${id}: ${message}`)
       }
     },
   },

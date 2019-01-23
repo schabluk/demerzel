@@ -7,13 +7,13 @@ import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
 import Service from '../services'
 
-const Post = withRouter(({ screenSize, show }) => (
+const Post = withRouter(({ screenSize, data }) => (
   <Layout screenSize={screenSize} header={<Navigation />}>
     <Container style={{ flex: '1' }}>
-      <h1>{show.name}</h1>
+      <h1>{data.name}</h1>
       <div style={{ display: 'flex' }}>
-        <img src={show.image.medium} style={{ flex: 1 }} alt='Medium' />
-        <div style={{ flex: 5, marginLeft: 15 }}>{show.summary.replace(/<[/]?p>/g, '')}</div>
+        <img src={data.image.medium} style={{ flex: 1 }} alt='Medium' />
+        <div style={{ flex: 5, marginLeft: 15 }}>{data.summary.replace(/<[/]?p>/g, '')}</div>
       </div>
     </Container>
   </Layout>
@@ -30,7 +30,7 @@ Post.getInitialProps = async function getInitialProps(context) {
 
   return {
     isServer,
-    show: data,
+    data,
   }
 }
 

@@ -5,5 +5,5 @@
  */
 export default {
   backgroundColor: '#f9f9f9',
-  baseColor: '#fff',
+  baseColor: '#f9f9f9',
 }
