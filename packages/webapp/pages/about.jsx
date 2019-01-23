@@ -1,5 +1,6 @@
-import Fetch from 'isomorphic-unfetch'
+// import Fetch from 'isomorphic-unfetch'
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { withStyles, withTheme } from '@material-ui/core/styles'
 import { withWidth } from '@material-ui/core'
@@ -7,8 +8,9 @@ import { withWidth } from '@material-ui/core'
 import Layout from '../layout/Layout'
 import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
+import Service from '../services'
 
-const Page = ({ width: screenSize, classes, store, isServer, data }) => (
+const Page = ({ width: screenSize, classes, store, isServer = false, data = [] }) => (
   <Layout screenSize={screenSize} header={<Navigation />}>
     <Container style={{ flex: '1' }}>
       <section>
@@ -30,10 +32,21 @@ const Page = ({ width: screenSize, classes, store, isServer, data }) => (
   </Layout>
 )
 
+Page.propTypes = {
+  width: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+  classes: PropTypes.object,
+  store: PropTypes.object,
+  isServer: PropTypes.bool,
+  data: PropTypes.array,
+}
+
 Page.getInitialProps = async function getInitialProps() {
+  const {
+    show: { getShowByName },
+  } = Service
+
   const isServer = typeof window === 'undefined'
-  const res = await Fetch('https://api.tvmaze.com/search/shows?q=batman')
-  const data = await res.json()
+  const { data } = await getShowByName('batman')
 
   return {
     isServer,

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { withStyles, withTheme } from '@material-ui/core/styles'
 import { Button, Paper, Stepper, Step, StepLabel, StepContent, withWidth } from '@material-ui/core'
 
@@ -84,6 +85,12 @@ const Page = ({ width: screenSize, classes, store }) => {
       </Container>
     </Layout>
   )
+}
+
+Page.propTypes = {
+  width: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+  classes: PropTypes.object,
+  store: PropTypes.object,
 }
 
 const styles = theme => ({

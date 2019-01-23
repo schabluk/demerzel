@@ -1,4 +1,3 @@
-import Fetch from 'isomorphic-unfetch'
 import React from 'react'
 import { withRouter } from 'next/router'
 import { withWidth } from '@material-ui/core'
@@ -6,6 +5,7 @@ import { withWidth } from '@material-ui/core'
 import Layout from '../layout/Layout'
 import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
+import Service from '../services'
 
 const Post = withRouter(({ screenSize, show }) => (
   <Layout screenSize={screenSize} header={<Navigation />}>
@@ -21,10 +21,17 @@ const Post = withRouter(({ screenSize, show }) => (
 
 Post.getInitialProps = async function getInitialProps(context) {
   const { id } = context.query
-  const res = await Fetch(`https://api.tvmaze.com/shows/${id}`)
-  const show = await res.json()
+  const {
+    show: { getShowById },
+  } = Service
 
-  return { show }
+  const isServer = typeof window === 'undefined'
+  const { data } = await getShowById(id)
+
+  return {
+    isServer,
+    show: data,
+  }
 }
 
 export default withWidth()(Post)
