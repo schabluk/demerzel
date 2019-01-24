@@ -72,6 +72,8 @@ Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written
 
 Tests are executer using [Jest](https://jestjs.io/) runner, and written with [React Testing Library](https://testing-library.com/react) for React components.
 
+![Components Testing](images/jest-tests.png)
+
 The main Jest configuration files is located in the top-level project directory: [jest.config.js](jest.config.js), however, a package can extend this configuration from it's local directory, like here: [packages/webapp/jest.config.js](packages/webapp/jest.config.js).
 
 Example tests:
