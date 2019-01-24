@@ -66,7 +66,7 @@ yarn dev
 
 Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated TS components only.
 
-![Development Cycle](images/development-cycle.png)
+<img src="images/development-cycle.png" width="300px">
 
 ## Testing
 
