@@ -66,8 +66,6 @@ yarn dev
 
 Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated TS components only.
 
-![Development Cycle](images/development-cycle.png | width=300)
-
 ## Testing
 
 Tests are executer using [Jest](https://jestjs.io/) runner, and written with [React Testing Library](https://testing-library.com/react) for React components.
