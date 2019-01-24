@@ -9,7 +9,8 @@
     "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build",
     "format": "prettier --write \"packages/src/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "test": "lerna run --no-private --parallel test"
+    "test": "lerna run --no-private --parallel test",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "workspaces": [
     "packages/*"
@@ -54,6 +55,10 @@
     "standard": "^12.0.1",
     "strapi": "3.0.0-alpha.19",
     "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-loader": "^3.5.4",
+    "tslint-react": "^3.6.0",
     "typescript": "^3.2.4"
   }
 }
