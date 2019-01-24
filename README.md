@@ -83,6 +83,7 @@ ToDo:
 
 - testing Node.js modules.
 - end to end with Cypress.
+- testing REST end-points.
 
 ## Quality
 
