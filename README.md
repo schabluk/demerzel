@@ -1,27 +1,28 @@
 # Demerzel
 
-The repository contains basic setup to quickly bootstrap a Web Application.
+This repository contains basic setup, to quickly bootstrap new project for a web application.
+
+The intention is also, to provide opinionated list of technologies, that can be used to create modern, sophisticated web applications, that are and robust easy to maintain.
 
 ## Features
 
-- Server Side Rendering [SSR].
-- Progressive Web App [PWA].
-- Code Linting and Prettifying.
-- Configured testing framework.
-- TypeScript support for type safety code.
+You will get isomorphic, type safe, mobile ready, server side rendered [SSR], progressive web application [PWA], with pre-configured testing, code linting and prettifying. Just wow :tada:!
 
 ## Monorepo
 
-The repository has a monorepository structure. The idea behind such structure, is to have a package architecture, that simplifies the process of developing modular software, by allowing for better code sharing, simpler dependency management, and build process optimization. Moreover, it helps to manage:
+The repository has a monorepo structure. The idea behind such structure, is to have a package architecture, that simplifies the process of developing modular software, by allowing for better code sharing, simpler dependency management, and build process optimization. Moreover, it helps to manage:
 
 - Cross dependencies.
 - Tests configuration.
 - Linting configuration.
-- Pull requests templates.
 - Deployment scripts.
-- Code quiality.
 
-The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it can be extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of workspaces. Some background information can be found in the article: [Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9).
+The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it is extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of workspaces. Some background information can be found in the article: [Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9).
+
+## Vesion Control
+
+- [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for branching model.
+- [Semantic Versioning](https://semver.org) for versioning packages.
 
 # Packages
 
@@ -64,46 +65,104 @@ yarn dev
 
 # Development cycle
 
-Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated TS components only.
+Preferably using Timeboxing.
+
+Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated components only.
 
 ![Development Cycle](images/development-cycle.png)
 
+## Development Environment
+
+- [Visual Studio Code](https://code.visualstudio.com) - for code editing. Recomended plugins:
+  - Plugin list
+- [CodeSandbox](https://codesandbox.io) - for live collaboration and quick code sharing.
+
+## Code Structure
+
+https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346?
+https://gist.github.com/jamesknelson/432f00af5522ea07cbb39990a8105e0c?
+
+## Code Quality
+
+The code quality is assured with [ESLint](https://eslint.org)/[TSLint](https://palantir.github.io/tslint) and [Prettier](https://prettier.io). The settings for code linting ([JS](.eslintrc.js)/[TS](tslint.json)) and [formating](.prettierrc) are higly opinionated, but they must be followed to keep consistency across the codebase.
+
+The top-level [package.json](package.json) is configured with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged), to prevent from commiting baddly written, or erroneous code to the repository.
+
+ToDo:
+
+- Add test runner to lint-staged, to prevent from commiting code with failing tests.
+
 ## Testing
 
-Tests are executer using [Jest](https://jestjs.io/) runner, and written with [React Testing Library](https://testing-library.com/react) for React components.
+Tests are made with [React Testing Library](https://testing-library.com/react) for React components, and they are executer with [Jest](https://jestjs.io/) test runner.
 
-The main Jest configuration files is located in the top-level project directory: [jest.config.js](jest.config.js), however, a package can extend this configuration from it's local directory, like here: [packages/webapp/jest.config.js](packages/webapp/jest.config.js).
+The main Jest configuration file is located in the top-level project directory: [jest.config.js](jest.config.js), however, packages can extend this configuration from their local directory, like the [webapp](packages/webapp/jest.config.js).
 
-Example tests:
+Here are some example tests:
 
-- for JavaScript: [packages/webapp/modules/Foo.test.jsx](packages/webapp/modules/Foo.test.jsx)
-- for TypeScript: [packages/webapp/modules/Bar.test.tsx](packages/webapp/modules/Bar.test.tsx)
-
-ToDo:
-
-- testing Node.js modules.
-- end to end with Cypress.
-- testing REST end-points.
-
-## Quality
-
-The code quality is assured with the help of [ESLint](https://eslint.org) and [Prettier](https://prettier.io). The settings for [code styling](.eslintrc.js) and [formating](.prettierrc) are higly opinionated, but they must be followed to keep consistency across the whole codebase.
-
-The main [package.json](package.json) file is configured with [husky](https://github.com/typicode/husky) and [lint-staged](https://github.com/okonet/lint-staged), to prevent from commiting baddly written, or erroneous code to the repository.
+- for [JavaScript](packages/webapp/modules/Foo.test.jsx) files.
+- for [TypeScript](packages/webapp/modules/Bar.test.tsx) files.
 
 ToDo:
 
-- add test runner to lint-staged.
+- setup testing for Node.js modules.
+- setup end-to-end tests in Cypress.
+- setup testing for REST end-points.
+
+## Metrics
+
+To get insight into application's performance and quality, it should be additionally tested against [Lighthouse](https://developers.google.com/web/tools/lighthouse), which can be done in [Chrome DevTools](https://developers.google.com/web/tools/lighthouse/#devtools).
 
 # Architecture
 
+The main principle to follow, to achieve modular architecture, is Separation of Concerns.
+
+The system has to have a layered structure, with clear separation between Presentation Layer, Business Logic, and Persistency Layer.
+
+![Application layers](layers.png)
+
+## Front End
+
+The Front-End code is isomorphic, meaning, it will run on both, the client and the server.
+
+_Note_: For a complete list of technical requirements for a Web Application, follow the [Front End Checklist](https://github.com/thedaviddias/Front-End-Checklist).
+
+### User Interface
+
+#### Styling
+
+Components styling is done with SCSS, CSS Modules, Styled Components, adopting CSS Grid for responsive layout.
+
+### State Management
+
+### State Charts
+
+## Back End
+
 - Data Storage: [MongoDB](https://www.mongodb.com)
 - Headless CMS: [Strapi](https://strapi.io)
-- Chat Server: [Zulip](https://github.com/zulip/zulip)
+- Chat Service: [Zulip](https://github.com/zulip/zulip)
 
-## MongoDB
+### MongoDB
 
 ?
+
+## Progressive Web Apps
+
+# Solutions
+
+## User Input
+
+- Use DraftJS instead of `textarea`
+- react-jsonschema-form
+
+## Access Control
+
+## Business Logic
+
+# Documentation
+
+## Markdown
 
 # Workflow commands
 
