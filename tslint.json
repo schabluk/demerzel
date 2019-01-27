@@ -15,12 +15,12 @@
     "space-before-function-paren": false,
     "indent": [true, "spaces"],
     "no-console": false,
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-submodule-imports": [true, "next"]
     // "jsx-no-lambda": false,
     // "jsx-no-multiline-js": false,
     // "max-line-length": false,
     // "no-object-literal-type-assertion": false,
-    // "no-submodule-imports": [true, "next"],
     // "typedef-whitespace": [
     //   true,
     //   {
