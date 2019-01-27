@@ -2,11 +2,11 @@
 
 This repository contains basic setup, to quickly bootstrap new project for a web application.
 
-The intention is also, to provide opinionated list of technologies, that can be used to create modern, sophisticated web applications, that are robust and easy to maintain.
+The intention is also, to provide opinionated list of technologies, that boost productivity, and can be used to create modern, sophisticated web applications, that are robust and easy to maintain.
 
 ## Features
 
-You will get isomorphic, type safe, responsive, mobile ready, server side rendered [SSR], progressive web application [PWA], with pre-configured testing, code linting and prettifying. :tada:
+You will get isomorphic, type safe, responsive, mobile ready, server side rendered, progressive web app, with pre-configured testing, code linting and prettifying. :tada:
 
 ## Monorepo
 
@@ -17,20 +17,15 @@ The repository has a monorepo structure. The idea behind such structure, is to h
 - Linting configuration.
 - Deployment scripts.
 
-The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it is extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of workspaces. Some background information can be found in the article: [Monorepos in the Wild](https://medium.com/@maoberlehner/monorepos-in-the-wild-33c6eb246cb9).
+The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it is extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of workspaces.
 
-## Vesion Control
-
-- [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for branching model.
-- [Semantic Versioning](https://semver.org) for versioning packages.
-
-# Packages
+## Packages
 
 The modules are placed inside `packages` directory:
 
 - **components**: library of React components. Uses [styleguidist](https://github.com/styleguidist/react-styleguidist) for presentation.
 - **config**: sharable build configuration for [Webpack](https://webpack.js.org) bundler.
-- **utils**: utils and tools.
+- **utils**: utilities and tools.
 - **webapp**: Web Application.
 
 Each module in the `packages` directory should be treated as a standalone `npm` package, with it's own scripts and depenencies.
@@ -39,7 +34,14 @@ For most of the modules, one should be able to run at least `yarn start` and `ya
 
 Some modules are marked as `private` in their local `package.json` file, which means, that they can be excluded from the workflow when using Lerna.
 
-# Installation
+## Vesion Control
+
+Adapting:
+
+- [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) for branching model.
+- [Semantic Versioning](https://semver.org) for packages versioning.
+
+## Installation
 
 _Note: It is recommended to update Node.js to it's recent version._
 
@@ -63,7 +65,7 @@ cd packages/webapp/
 yarn dev
 ```
 
-# Deployment
+## Deployment
 
 - ToDo: configure via `now`.
 
@@ -76,13 +78,8 @@ Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written
 ## Development Environment
 
 - [Visual Studio Code](https://code.visualstudio.com) - for code editing. Recomended plugins:
-  - Plugin list
+  - ToDo: plugin list
 - [CodeSandbox](https://codesandbox.io) - for live collaboration and quick code sharing.
-
-## Code Structure
-
-https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346?
-https://gist.github.com/jamesknelson/432f00af5522ea07cbb39990a8105e0c?
 
 ## Code Quality
 
@@ -118,8 +115,7 @@ The application will be tested with [Lighthouse](https://developers.google.com/w
 # Architecture
 
 The system has layered structure, with clear _Separation of Concerns_ between Presentation Layer, Business Logic, and Persistency Layer.
-
-![Application layers](images/application-layers.png)
+![](images/application-layers.png)
 
 ## Front End
 
@@ -129,19 +125,41 @@ _Note_: For a complete list of technical requirements, follow the [Front End Che
 
 ### User Interface
 
-UI components are build entirely with [React.js](https://reactjs.org) _library_, and because React is not opinionated about the application's structure, the [Next.js](https://nextjs.org) _framework_ is used to enhance the project with a proper architecture, and to enable server side rendering (SSR).
+The UI is build entirely with [React.js](https://reactjs.org) _library_, as it provides the best methods for creating reusable, and modular components.
+
+Because React is not opinionated about how code should be structured, the [Next.js](https://nextjs.org) _framework_ is used to enhance the project with a proper architecture, and to enable server side rendering (SSR) out of the box.
+
+#### Components
+
+Components are the primary unit of code in React. They can be as simple, as a [single function](packages/webapp/components/Link/Link.tsx) (so called _dumb_, or _stateless_ components), or in form of [complex classes](packages/webapp/components/ErrorBoundry/ErrorBoundry.js) (_smart_, or _statefull_ components)
+
+They are the basic constructs to facilitate code reusability, and for them React provides a set of techniques and patterns, like:
+
+- [Higher-Order Components](https://reactjs.org/docs/higher-order-components.html)
+- [Render Props](https://reactjs.org/docs/render-props.html)
+- [Hooks](https://reactjs.org/docs/hooks-intro.html)
+
+Most of the components (maybe even around 95%), should be _dumb_, without any business logic and state management. The _smart_ components, that are managing application state, are acting as controlers (aka MVC).
 
 #### Pages
 
+Pages are the top-level components in Next.js framework. Every file that will be put into [pages](packages/webapp/pages) directory, will be available to the user by the URL made from it's name, i.e.: `pages/about.js` will become: `http://localhost/about`.
+
+Supported extensions for the page files are: `ts`, `tsx`, `js`, `jsx`, `md`, `mdx`.
+
+#### Markdown
+
+Thanks to [MDX.js](https://mdxjs.com), it is possible to create pages using [Markdown language](https://pl.wikipedia.org/wiki/Markdown). The markdown can be mixed with HTML elements and React components. See the [markdown.mdx](packages/webapp/pages/markdown.mdx) page example.
+
 #### Layout
 
-The [page layout](packages/webapp/layout/Layout.jsx) is constructed with [CSS Grid](https://developer.mozilla.org/pl/docs/Web/CSS/CSS_Grid_Layout), as a native browser solution for responsive grid layout system.
+The [page layout](packages/webapp/layout/Layout.jsx) is made with [CSS Grid](https://developer.mozilla.org/pl/docs/Web/CSS/CSS_Grid_Layout), as a native browser solution for responsive grid layout system.
 
 #### Styling
 
 The Web Application [is configured](packages/webapp/next.config.js) to support:
 
-- Plain CSS files:
+- Plain CSS files and Fonts:
   - loaded from [static assets](https://github.com/schabluk/demerzel/blob/38584a4f54c3d260030f9667a6f3a77b0a15f31e/packages/webapp/pages/_document.js#L48) folder, or
   - loaded from node_modules with `import` statement (3rd party libraries).
 - [Sass](https://sass-lang.com) files, loaded as [CSS Modules](https://github.com/css-modules/css-modules), to prevent class names collision.
@@ -149,36 +167,67 @@ The Web Application [is configured](packages/webapp/next.config.js) to support:
 
 The styling for React components is done either with Sass, or Styled Components, but without mixing those two solutions. In case of Sass, the `*.scss` files are located in the same folders as `*.jsx` components.
 
-#### Markdown
+Using global CSS class names to style components should be avoided.
 
-Using MDX to build pages.
+#### Holarchy
+
+ToDo: describe the system composition.
+[](https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346)
+[](https://gist.github.com/jamesknelson/432f00af5522ea07cbb39990a8105e0c)
 
 ### State Management
 
+The application state is separated from the User Interface, and exists as a tree object in a [Data Store](packages/webapp/stores/index.js), managed by [MobX](https://github.com/mobxjs/mobx-state-tree).
+
+Usualy, the Store is composed from:
+
+- User Interface Store - application specific, not reusable. It keeps loosely coupled pieces of information about the UI, for example:
+
+  - Loading progress.
+  - Window dimensions.
+  - Visibility of toolbars.
+  - State of a global overlay.
+
+- Domain Stores - represents the state of various Modules and Components that constitutes the application. Can have other functions, like:
+  - Backend integration
+  - Session management
+  - Cross module communication
+  - Local data persistence
+
+The whole application state can be [serialized](https://github.com/mobxjs/mobx-state-tree#snapshots) to a plain JSON file, and saved as a [snapshot](packages/webapp/stores/snapshot.ts).
+
 ### State Charts
+
+ToDo
 
 ## Back End
 
 - Data Storage: [MongoDB](https://www.mongodb.com)
 - Headless CMS: [Strapi](https://strapi.io)
-- Chat Service: [Zulip](https://github.com/zulip/zulip)
 
 ### MongoDB
 
-?
+ToDo
 
-## Progressive Web Apps
+## Strapi
+
+ToDo
 
 # Solutions
 
 ## User Input
 
 - Use DraftJS instead of `textarea`
-- react-jsonschema-form
+- Generate forms with `react-jsonschema-form`
+- ...
 
 ## Access Control
 
+ToDo
+
 ## Business Logic
+
+ToDo
 
 # Workflow commands
 
