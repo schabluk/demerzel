@@ -63,9 +63,11 @@ cd packages/webapp/
 yarn dev
 ```
 
-# Development cycle
+# Deployment
 
-Preferably using Timeboxing.
+- ToDo: configure via `now`.
+
+# Development
 
 Prototyping in JavaScript [JS], delivering in TypeScript [TS]. Tests are written for validated components only.
 
@@ -115,17 +117,25 @@ The application will be tested with [Lighthouse](https://developers.google.com/w
 
 # Architecture
 
-The system has a layered structure, with clear separation between Presentation Layer, Business Logic, and Persistency Layer.
+The system has layered structure, with clear _Separation of Concerns_ between Presentation Layer, Business Logic, and Persistency Layer.
 
 ![Application layers](images/application-layers.png)
 
 ## Front End
 
-The Front-End code is isomorphic, meaning, it will run on both, the client and the server.
+_Note_: The Front-End code is isomorphic, meaning, it will run both, on the client and on the server side.
 
-_Note_: For a complete list of technical requirements for a Web Application, follow the [Front End Checklist](https://github.com/thedaviddias/Front-End-Checklist).
+_Note_: For a complete list of technical requirements, follow the [Front End Checklist](https://github.com/thedaviddias/Front-End-Checklist).
 
 ### User Interface
+
+UI components are build entirely with [React.js](https://reactjs.org) _library_, and because React is not opinionated about the application's structure, the [Next.js](https://nextjs.org) _framework_ is used to enhance the project with a proper architecture, and to enable server side rendering (SSR).
+
+#### Pages
+
+#### Layout
+
+The [page layout](packages/webapp/layout/Layout.jsx) is constructed with [CSS Grid](https://developer.mozilla.org/pl/docs/Web/CSS/CSS_Grid_Layout), as a native browser solution for responsive grid layout system.
 
 #### Styling
 
@@ -139,7 +149,9 @@ The Web Application [is configured](packages/webapp/next.config.js) to support:
 
 The styling for React components is done either with Sass, or Styled Components, but without mixing those two solutions. In case of Sass, the `*.scss` files are located in the same folders as `*.jsx` components.
 
-The [page layout](packages/webapp/layout/Layout.jsx) is constructed with [CSS Grid](https://developer.mozilla.org/pl/docs/Web/CSS/CSS_Grid_Layout), as a native browser solution for responsive grid layout system.
+#### Markdown
+
+Using MDX to build pages.
 
 ### State Management
 
@@ -167,10 +179,6 @@ The [page layout](packages/webapp/layout/Layout.jsx) is constructed with [CSS Gr
 ## Access Control
 
 ## Business Logic
-
-# Documentation
-
-## Markdown
 
 # Workflow commands
 
