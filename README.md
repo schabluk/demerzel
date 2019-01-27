@@ -2,7 +2,7 @@
 
 This repository contains basic setup, to quickly bootstrap new project for a web application.
 
-The intention is also, to provide opinionated list of technologies, that boost productivity, and can be used to create modern, sophisticated web applications, that are robust and easy to maintain.
+The intention is also to provide opinionated list of technologies, that boost productivity, and can be used to create modern, sophisticated web applications, that are robust and easy to maintain.
 
 ## Features
 
@@ -17,7 +17,7 @@ The repository has a monorepo structure. The idea behind such structure, is to h
 - Linting configuration.
 - Deployment scripts.
 
-The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it is extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of workspaces.
+The support for such an architecure comes with [workspaces](https://yarnpkg.com/lang/en/docs/workspaces) in Yarn package manager, and it is extended with [Lerna](https://github.com/lerna/lerna), which offers additional fetures on top of the workspaces.
 
 ## Packages
 
@@ -110,7 +110,7 @@ ToDo:
 
 ## Metrics
 
-The application will be tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse), to get insight into it's performance and quality. This can be done in [Chrome DevTools](https://developers.google.com/web/tools/lighthouse/#devtools).
+The application will be also checked with [Lighthouse](https://developers.google.com/web/tools/lighthouse), to get insight into it's performance and quality. This can be done in [Chrome DevTools](https://developers.google.com/web/tools/lighthouse/#devtools).
 
 # Architecture
 
@@ -177,7 +177,7 @@ ToDo: describe the system composition.
 
 ### State Management
 
-The application state is separated from the User Interface, and exists as a tree object in a [Data Store](packages/webapp/stores/index.js), managed by [MobX](https://github.com/mobxjs/mobx-state-tree).
+The Application State is separated from the User Interface, and exists as a tree object in a [Data Store](packages/webapp/stores/index.js), managed by [MobX](https://github.com/mobxjs/mobx-state-tree).
 
 Usualy, the Store is composed from:
 
