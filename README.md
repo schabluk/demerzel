@@ -2,11 +2,11 @@
 
 This repository contains basic setup, to quickly bootstrap new project for a web application.
 
-The intention is also, to provide opinionated list of technologies, that can be used to create modern, sophisticated web applications, that are and robust easy to maintain.
+The intention is also, to provide opinionated list of technologies, that can be used to create modern, sophisticated web applications, that are robust and easy to maintain.
 
 ## Features
 
-You will get isomorphic, type safe, mobile ready, server side rendered [SSR], progressive web application [PWA], with pre-configured testing, code linting and prettifying. Just wow :tada:!
+You will get isomorphic, type safe, responsive, mobile ready, server side rendered [SSR], progressive web application [PWA], with pre-configured testing, code linting and prettifying. :tada:
 
 ## Monorepo
 
@@ -94,14 +94,14 @@ ToDo:
 
 ## Testing
 
-Tests are made with [React Testing Library](https://testing-library.com/react) for React components, and they are executer with [Jest](https://jestjs.io/) test runner.
+Tests are made with [React Testing Library](https://testing-library.com/react) for React components, and are executed with [Jest](https://jestjs.io/) test runner.
 
-The main Jest configuration file is located in the top-level project directory: [jest.config.js](jest.config.js), however, packages can extend this configuration from their local directory, like the [webapp](packages/webapp/jest.config.js).
+The main Jest configuration file is located in the top-level project directory: [jest.config.js](jest.config.js). Packages can extend this configuration from their local directories, like the [webapp](packages/webapp/jest.config.js) does.
 
-Here are some example tests:
+Here are some test examples:
 
-- for [JavaScript](packages/webapp/modules/Foo.test.jsx) files.
-- for [TypeScript](packages/webapp/modules/Bar.test.tsx) files.
+- for [JavaScript](packages/webapp/modules/Foo.test.jsx) components.
+- for [TypeScript](packages/webapp/modules/Bar.test.tsx) components.
 
 ToDo:
 
@@ -111,15 +111,13 @@ ToDo:
 
 ## Metrics
 
-To get insight into application's performance and quality, it should be additionally tested against [Lighthouse](https://developers.google.com/web/tools/lighthouse), which can be done in [Chrome DevTools](https://developers.google.com/web/tools/lighthouse/#devtools).
+The application will be tested with [Lighthouse](https://developers.google.com/web/tools/lighthouse), to get insight into it's performance and quality. This can be done in [Chrome DevTools](https://developers.google.com/web/tools/lighthouse/#devtools).
 
 # Architecture
 
-The main principle to follow, to achieve modular architecture, is Separation of Concerns.
+The system has a layered structure, with clear separation between Presentation Layer, Business Logic, and Persistency Layer.
 
-The system has to have a layered structure, with clear separation between Presentation Layer, Business Logic, and Persistency Layer.
-
-![Application layers](layers.png)
+![Application layers](images/application-layers.png)
 
 ## Front End
 
@@ -131,7 +129,17 @@ _Note_: For a complete list of technical requirements for a Web Application, fol
 
 #### Styling
 
-Components styling is done with SCSS, CSS Modules, Styled Components, adopting CSS Grid for responsive layout.
+The Web Application [is configured](packages/webapp/next.config.js) to support:
+
+- Plain CSS files:
+  - loaded from [static assets](https://github.com/schabluk/demerzel/blob/38584a4f54c3d260030f9667a6f3a77b0a15f31e/packages/webapp/pages/_document.js#L48) folder, or
+  - loaded from node_modules with `import` statement (3rd party libraries).
+- [Sass](https://sass-lang.com) files, loaded as [CSS Modules](https://github.com/css-modules/css-modules), to prevent class names collision.
+- [Styled Components](https://www.styled-components.com), as a solution for CSS-in-JS.
+
+The styling for React components is done either with Sass, or Styled Components, but without mixing those two solutions. In case of Sass, the `*.scss` files are located in the same folders as `*.jsx` components.
+
+The [page layout](packages/webapp/layout/Layout.jsx) is constructed with [CSS Grid](https://developer.mozilla.org/pl/docs/Web/CSS/CSS_Grid_Layout), as a native browser solution for responsive grid layout system.
 
 ### State Management
 
