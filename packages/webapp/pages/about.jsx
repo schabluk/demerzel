@@ -8,7 +8,7 @@ import { withWidth } from '@material-ui/core'
 import Layout from '../layout/Layout'
 import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
-import Service from '../services'
+import { Services } from '../services'
 
 const Page = ({ width: screenSize, classes, store, isServer = false, data = [] }) => (
   <Layout screenSize={screenSize} header={<Navigation />}>
@@ -43,7 +43,7 @@ Page.propTypes = {
 Page.getInitialProps = async function getInitialProps() {
   const {
     show: { getShowByName },
-  } = Service
+  } = Services
 
   const isServer = typeof window === 'undefined'
   const { data } = await getShowByName('batman')

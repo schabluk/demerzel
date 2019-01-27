@@ -8,7 +8,7 @@ import React from 'react'
 import { getSnapshot } from 'mobx-state-tree'
 import App, { Container } from 'next/app'
 
-import { getStore } from '../stores'
+import { getStore } from '../stores/index.ts'
 
 export default class Application extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -28,20 +28,24 @@ export default class Application extends App {
     }
   }
 
-  render() {
-    const { Component, pageProps, initialState, isServer } = this.props
+  constructor(props) {
+    super(props)
 
     /**
      * Create client side Store instance.
      */
-    const store = getStore(isServer, initialState)
+    this.store = getStore(props.isServer, props.initialState)
+  }
+
+  render() {
+    const { Component, pageProps } = this.props
 
     /**
      * ToDo: we might want to pass the store using React.Context.
      */
     return (
       <Container>
-        <Component {...pageProps} store={store} />
+        <Component {...pageProps} store={this.store} />
         <style global jsx>{`
           body {
             font-family: 'Lato', sans-serif;

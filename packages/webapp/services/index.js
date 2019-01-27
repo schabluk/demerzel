@@ -9,14 +9,14 @@ const CancelSource = CancelToken.source()
 /**
  * The Address book.
  */
-const Address = {
+export const Endpoints = {
   auth: 'http://api.example.org',
   show: 'https://api.tvmaze.com',
 }
 
-const { auth, show } = Address
+const { auth, show } = Endpoints
 
-const Service = {
+export const Services = {
   show: {
     async getShowByName(name) {
       try {
@@ -71,5 +71,3 @@ const Service = {
     },
   },
 }
-
-export default Service

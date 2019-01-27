@@ -5,7 +5,7 @@ import { withWidth } from '@material-ui/core'
 import Layout from '../layout/Layout'
 import Container from '../layout/Container'
 import Navigation from '../modules/Navigation'
-import Service from '../services'
+import { Services } from '../services'
 
 const Post = withRouter(({ screenSize, data }) => (
   <Layout screenSize={screenSize} header={<Navigation />}>
@@ -23,7 +23,7 @@ Post.getInitialProps = async function getInitialProps(context) {
   const { id } = context.query
   const {
     show: { getShowById },
-  } = Service
+  } = Services
 
   const isServer = typeof window === 'undefined'
   const { data } = await getShowById(id)
