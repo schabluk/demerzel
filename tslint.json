@@ -2,8 +2,8 @@
   "defaultSeverity": "error",
   "extends": [
     // "tslint:recommended",
-    "tslint:latest",
     "tslint-config-standard",
+    "tslint:latest",
     "tslint-react",
     "tslint-config-prettier"
   ],
@@ -16,43 +16,13 @@
     "indent": [true, "spaces"],
     "no-console": false,
     "object-literal-sort-keys": false,
-    "no-submodule-imports": [true, "next"]
-    // "jsx-no-lambda": false,
-    // "jsx-no-multiline-js": false,
-    // "max-line-length": false,
-    // "no-object-literal-type-assertion": false,
-    // "typedef-whitespace": [
-    //   true,
-    //   {
-    //     "call-signature": "nospace",
-    //     "index-signature": "nospace",
-    //     "parameter": "nospace",
-    //     "property-declaration": "nospace",
-    //     "variable-declaration": "nospace"
-    //   },
-    //   {
-    //     "call-signature": "nospace",
-    //     "index-signature": "nospace",
-    //     "parameter": "nospace",
-    //     "property-declaration": "nospace",
-    //     "variable-declaration": "nospace"
-    //   }
-    // ],
-    // "whitespace": [
-    //   true,
-    //   "check-branch",
-    //   "check-decl",
-    //   "check-operator",
-    //   "check-module",
-    //   "check-preblock",
-    //   "check-rest-spread",
-    //   "check-separator",
-    //   "check-typecast",
-    //   "check-type-operator"
-    // ]
+    "no-submodule-imports": [true, "next"],
+    "jsx-no-lambda": false,
+    "jsx-no-multiline-js": false,
+    "no-angle-bracket-type-assertion": false
   },
   "linterOptions": {
-    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts", "packages/webapp/node_modules/**"]
   },
   "rulesDirectory": []
 }
