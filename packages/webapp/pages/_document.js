@@ -11,6 +11,8 @@ import { ServerStyleSheet } from 'styled-components'
 
 import { LanguageContext } from '../utils/context'
 
+import 'normalize.css'
+
 /* eslint-disable react/no-danger */
 class MainDocument extends Document {
   static async getInitialProps(ctx) {

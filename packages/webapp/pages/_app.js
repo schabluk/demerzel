@@ -9,6 +9,7 @@ import { getSnapshot } from 'mobx-state-tree'
 import App, { Container } from 'next/app'
 
 import { getStore } from '../stores/index.ts'
+import { Services } from '../services'
 
 export default class Application extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -34,7 +35,7 @@ export default class Application extends App {
     /**
      * Create client side Store instance.
      */
-    this.store = getStore(props.isServer, props.initialState)
+    this.store = getStore({ Services }, props.isServer, props.initialState)
   }
 
   render() {

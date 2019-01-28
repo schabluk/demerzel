@@ -1,7 +1,9 @@
 const withType = require('@zeit/next-typescript')
 const withSass = require('@zeit/next-sass')
 const withCSS = require('@zeit/next-css')
-const withMDX = require('@zeit/next-mdx')
+const withMDX = require('@zeit/next-mdx')({
+  extension: /.mdx?$/,
+})
 
 /**
  * Workaround to have CSS *without* modules,
@@ -18,8 +20,7 @@ module.exports = withType(
     withCSS(
       withMDX({
         cssModules: false, // option for withCSS.
-        extension: /\.(md|mdx)$/,
-        pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+        pageExtensions: ['js', 'jsx', 'md', 'mdx'],
       }),
     ),
   ),
