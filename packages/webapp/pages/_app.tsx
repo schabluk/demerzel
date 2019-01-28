@@ -1,20 +1,17 @@
-/**
- * Custom App wrapper.
- *
- * See: https://nextjs.org/docs/#custom-app
- */
-
-import React from 'react'
 import { getSnapshot } from 'mobx-state-tree'
 import App, { Container } from 'next/app'
+import React from 'react'
 
-import { getStore } from '../stores/index.ts'
 import { Services } from '../services'
+import { getStore, IStore } from '../stores'
+
+import 'normalize.css'
+import './_app.css'
 
 export default class Application extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  public static async getInitialProps({ Component, ctx }: any) {
     const isServer = typeof window === 'undefined'
-    const store = getStore(isServer)
+    const store = getStore({ Services }, isServer)
 
     let pageProps = {}
 
@@ -29,29 +26,20 @@ export default class Application extends App {
     }
   }
 
-  constructor(props) {
+  private store: IStore
+
+  constructor(props: any) {
     super(props)
 
-    /**
-     * Create client side Store instance.
-     */
     this.store = getStore({ Services }, props.isServer, props.initialState)
   }
 
-  render() {
+  public render() {
     const { Component, pageProps } = this.props
 
-    /**
-     * ToDo: we might want to pass the store using React.Context.
-     */
     return (
       <Container>
-        <Component {...pageProps} store={this.store} />
-        <style global jsx>{`
-          body {
-            font-family: 'Lato', sans-serif;
-          }
-        `}</style>
+        <Component store={this.store} {...pageProps} />
       </Container>
     )
   }
