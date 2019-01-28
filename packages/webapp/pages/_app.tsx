@@ -20,7 +20,7 @@ export default class Application extends App {
     }
 
     return {
-      initialState: getSnapshot(store),
+      initialSnapshot: getSnapshot(store),
       isServer,
       pageProps,
     }
@@ -31,7 +31,7 @@ export default class Application extends App {
   constructor(props: any) {
     super(props)
 
-    this.store = getStore({ Services }, props.isServer, props.initialState)
+    this.store = getStore({ Services }, props.isServer, props.initialSnapshot)
   }
 
   public render() {
