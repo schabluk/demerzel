@@ -12,10 +12,25 @@ import Editor from '../draft'
 //   isServer: boolean
 // }
 
+const content = {
+  blocks: [
+    {
+      key: '2sjp4',
+      text: 'Hello! I am an editor :)',
+      type: 'unstyled',
+      depth: 0,
+      inlineStyleRanges: [],
+      entityRanges: [],
+      data: {},
+    },
+  ],
+  entityMap: {},
+}
+
 const Page = ({ screenSize, classes, store, isServer = false }) => (
   <Container style={{ flex: '1' }}>
     <div style={{ backgroundColor: 'white', padding: '.5rem' }}>
-      <Editor />
+      <Editor metadata={content} />
     </div>
   </Container>
 )
