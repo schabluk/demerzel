@@ -16,7 +16,7 @@
     "indent": [true, "spaces"],
     "no-console": false,
     "object-literal-sort-keys": false,
-    "no-submodule-imports": [true, "next"],
+    "no-submodule-imports": false,
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "no-angle-bracket-type-assertion": false
