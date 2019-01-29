@@ -15,6 +15,9 @@ const Navigation = () => {
       <Link href='/markdown'>
         <a>Markdown</a>
       </Link>
+      <Link href='/editor'>
+        <a>Editor</a>
+      </Link>
     </div>
   )
 }

@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { withStyles, withTheme } from '@material-ui/core/styles'
-import { Button, Paper, Stepper, Step, StepLabel, StepContent, withWidth } from '@material-ui/core'
+import { Button, Paper, Stepper, Step, StepLabel, StepContent } from '@material-ui/core'
 
-import Layout from '../layout/Layout'
 import Container from '../layout/Container'
-import Navigation from '../modules/Navigation'
 import { isSmallScreen } from '../utils'
 import { useMachine } from '../hooks'
 import toggleMachine from '../machines/toggle'
@@ -14,7 +12,7 @@ import { Icon } from '../components'
 
 import css from './index.scss'
 
-const Page = ({ width: screenSize, classes, store }) => {
+const Page = ({ screenSize, classes, store }) => {
   const smallScreen = isSmallScreen(screenSize)
 
   const { steps } = Snapshot
@@ -37,58 +35,56 @@ const Page = ({ width: screenSize, classes, store }) => {
   }
 
   return (
-    <Layout screenSize={screenSize} header={<Navigation />}>
-      <Container style={{ flex: '1' }}>
-        <div className={css.actions}>
-          <Button
-            onClick={() => setCount(count + 1)}
-            variant='contained'
-            color='secondary'
-            className={classes.button}>
-            <Icon name={'user'} /> {count}
-          </Button>
-          <Button
-            onClick={() => send('TOGGLE')}
-            variant='contained'
-            color='primary'
-            className={classes.button}>
-            {current.value}
-          </Button>
-          <Button
-            onClick={handleBack}
-            variant='contained'
-            disabled={activeStep === 0}
-            className={classes.button}>
-            Back
-          </Button>
-          <Button
-            onClick={finish ? handleReset : handleNext}
-            variant='contained'
-            color={finish ? 'secondary' : 'primary'}
-            className={classes.button}>
-            {finish ? 'Finish' : 'Next'}
-          </Button>
-        </div>
-        <Paper>
-          <Stepper
-            activeStep={activeStep}
-            orientation={smallScreen ? 'vertical' : 'horizontal'}
-            alternativeLabel={!smallScreen}>
-            {steps.map(({ label, content }, index) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-                {smallScreen && <StepContent>{content}</StepContent>}
-              </Step>
-            ))}
-          </Stepper>
-        </Paper>
-      </Container>
-    </Layout>
+    <Container style={{ flex: '1' }}>
+      <div className={css.actions}>
+        <Button
+          onClick={() => setCount(count + 1)}
+          variant='contained'
+          color='secondary'
+          className={classes.button}>
+          <Icon name={'user'} /> {count}
+        </Button>
+        <Button
+          onClick={() => send('TOGGLE')}
+          variant='contained'
+          color='primary'
+          className={classes.button}>
+          {current.value}
+        </Button>
+        <Button
+          onClick={handleBack}
+          variant='contained'
+          disabled={activeStep === 0}
+          className={classes.button}>
+          Back
+        </Button>
+        <Button
+          onClick={finish ? handleReset : handleNext}
+          variant='contained'
+          color={finish ? 'secondary' : 'primary'}
+          className={classes.button}>
+          {finish ? 'Finish' : 'Next'}
+        </Button>
+      </div>
+      <Paper>
+        <Stepper
+          activeStep={activeStep}
+          orientation={smallScreen ? 'vertical' : 'horizontal'}
+          alternativeLabel={!smallScreen}>
+          {steps.map(({ label, content }, index) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+              {smallScreen && <StepContent>{content}</StepContent>}
+            </Step>
+          ))}
+        </Stepper>
+      </Paper>
+    </Container>
   )
 }
 
 Page.propTypes = {
-  width: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
+  screenSize: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
   classes: PropTypes.object,
   store: PropTypes.object,
 }
@@ -118,4 +114,4 @@ const styles = theme => ({
   },
 })
 
-export default withStyles(styles)(withTheme()(withWidth()(Page)))
+export default withStyles(styles)(withTheme()(Page))

@@ -1,16 +1,12 @@
 import { withWidth } from '@material-ui/core'
 
-import Layout from '../layout/Layout'
 import Container from '../layout/Container'
-import Navigation from '../modules/Navigation'
 
-export default withWidth()(function({ children, width: screenSize }) {
+export default ({ children, screenSize }) => {
   return (
-    <Layout screenSize={screenSize} header={<Navigation />}>
-      <Container style={{ flex: '1' }}>{children}</Container>
-    </Layout>
+    <Container style={{ flex: '1' }}>{children}</Container>
   )
-})
+}
 
 ### Markdown
 

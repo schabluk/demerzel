@@ -1,4 +1,7 @@
 import { applySnapshot, getEnv, Instance, SnapshotIn, SnapshotOut, types } from 'mobx-state-tree'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig: { user } } = getConfig()
 
 const MainStore = types
   .model('MainStore', {
@@ -6,6 +9,7 @@ const MainStore = types
     ui: types.model('UiStore', {
       devTools: types.optional(types.boolean, false),
       lastUpdate: types.Date,
+      user: types.optional(types.string, user),
     }),
   })
   // .views(self => ({
@@ -18,7 +22,7 @@ const MainStore = types
 
     return {
       afterCreate() {
-        console.log('MainStore afterCreate', API)
+        // console.log('MainStore afterCreate', API)
       },
       setTimestamp() {
         self.timestamp = new Date().getTime()
