@@ -7,13 +7,9 @@ import MicIcon from '@material-ui/icons/Mic'
 import MicOffIcon from '@material-ui/icons/MicOff'
 import chroma from 'chroma-js'
 
+import { useSpeech } from '../hooks'
 import { Box } from '../components'
 import Container from '../layout/Container'
-
-/**
- * The Speach util is client-side-only.
- */
-const Speech = process.browser ? require('../utils/speech').default : undefined
 
 const foo = () => {
   console.log('effect foo')
@@ -21,38 +17,6 @@ const foo = () => {
 
 const bar = () => {
   console.log('effect bar')
-}
-
-function useSpeech() {
-  const [recording, setRecording] = useState(false)
-  const [transcript, setTranscript] = useState({ match: '', error: null })
-
-  useEffect(() => {
-    if (recording) {
-      Speech.start()
-    } else {
-      Speech.stop()
-    }
-  }, [recording])
-
-  Speech.onresult = ({ results }) => {
-    const [resultList] = results // Frist list from results.
-    const [resultItem] = resultList // First item from result list.
-
-    const { transcript } = resultItem
-
-    setTranscript({ match: transcript, error: null })
-  }
-
-  Speech.onspeechend = () => {
-    Speech.stop()
-    setRecording(false)
-  }
-
-  Speech.onnomatch = e => setTranscript({ match: null, error: `I didn't recognise that` })
-  Speech.onerror = ({ error }) => setTranscript({ match: null, error })
-
-  return [recording, setRecording, transcript]
 }
 
 const Page = ({ screenSize, classes, store, isServer = false }) => {
