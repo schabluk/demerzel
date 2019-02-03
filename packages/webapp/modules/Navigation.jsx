@@ -18,6 +18,9 @@ const Navigation = () => {
       <Link href='/editor'>
         <a>Editor</a>
       </Link>
+      <Link href='/speech'>
+        <a>Speech</a>
+      </Link>
     </div>
   )
 }

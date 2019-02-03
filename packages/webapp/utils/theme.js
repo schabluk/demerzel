@@ -6,4 +6,5 @@
 export default {
   backgroundColor: '#eee',
   baseColor: '#eee',
+  boxColor: '#ff1c68',
 }

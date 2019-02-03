@@ -17,13 +17,13 @@
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "@material-ui/icons": "^3.0.2",
-    "@material-ui/styles": "^3.0.0-alpha.8",
     "@mdx-js/mdx": "^0.16.8",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-mdx": "^1.2.0",
     "@zeit/next-sass": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "axios": "^0.18.0",
+    "chroma-js": "^2.0.2",
     "classnames": "^2.2.6",
     "draft-js": "^0.10.5",
     "express": "^4.16.4",
@@ -39,6 +39,7 @@
     "react": "16.8.0-alpha.1",
     "react-dom": "16.8.0-alpha.1",
     "react-intl": "^2.8.0",
+    "react-pose": "^4.0.6",
     "styled-components": "^4.1.3",
     "xstate": "^4.2.4"
   },

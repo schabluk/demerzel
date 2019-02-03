@@ -85,7 +85,7 @@ const Page = ({ screenSize, classes, store }) => {
 
 Page.propTypes = {
   screenSize: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
-  classes: PropTypes.object,
+  classes: PropTypes.object.isRequired,
   store: PropTypes.object,
 }
 

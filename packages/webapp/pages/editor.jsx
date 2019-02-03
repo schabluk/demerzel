@@ -16,7 +16,7 @@ const content = {
   blocks: [
     {
       key: '2sjp4',
-      text: 'Hello! I am an editor :)',
+      text: 'Hello!',
       type: 'unstyled',
       depth: 0,
       inlineStyleRanges: [],
@@ -29,7 +29,7 @@ const content = {
 
 const Page = ({ screenSize, classes, store, isServer = false }) => (
   <Container style={{ flex: '1' }}>
-    <div style={{ backgroundColor: 'white', padding: '.5rem' }}>
+    <div className={classes.searchBox}>
       <Editor metadata={content} />
     </div>
   </Container>
@@ -37,13 +37,19 @@ const Page = ({ screenSize, classes, store, isServer = false }) => (
 
 Page.propTypes = {
   screenSize: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
-  classes: PropTypes.object,
+  classes: PropTypes.object.isRequired,
   store: PropTypes.object,
   isServer: PropTypes.bool,
 }
 
 const styles = theme => ({
   root: {},
+  searchBox: {
+    backgroundColor: 'white',
+    padding: '0.5rem',
+    margin: '2rem auto',
+    width: '600px',
+  },
 })
 
 export default withStyles(styles)(withTheme()(Page))
