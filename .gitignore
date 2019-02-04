@@ -73,3 +73,5 @@ yarn-error.log
 .vscode
 .editorconfig
 .next
+packages/*/build
+packages/*/dist
