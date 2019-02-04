@@ -3,7 +3,10 @@ import { useState, useEffect } from 'react'
 /**
  * The Speach util is client-side-only.
  */
-const Speech = process.browser ? require('../utils/speech').default : undefined
+const Speech =
+  process.browser && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)
+    ? require('../utils/speech').default
+    : undefined
 
 function useSpeech() {
   const [recording, setRecording] = useState(false)
