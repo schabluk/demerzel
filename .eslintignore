@@ -4,5 +4,5 @@ node_modules/**
 **/dist/**
 **/public/**
 **/.next/**
-*.spec.js
-*.test.js
+*.spec.js*
+*.test.js*
