@@ -6,7 +6,7 @@
   "scripts": {
     "boot": "lerna bootstrap",
     "build": "lerna run --no-private build",
-    "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build",
+    "clean": "lerna clean && rimraf packages/*/dist && rimraf packages/*/build && rimraf node_modules",
     "format": "prettier --write \"packages/src/**/*.{js,jsx}\"",
     "lint": "eslint packages/**/*.{js,jsx} --quiet",
     "pretest": "yarn lint",
