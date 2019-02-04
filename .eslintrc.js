@@ -28,5 +28,6 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'object-curly-newline': 'off',
+    quotes: ['error', 'single', { allowTemplateLiterals: true }],
   },
 }
