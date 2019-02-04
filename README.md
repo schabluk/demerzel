@@ -106,7 +106,7 @@ ToDo:
 
 - setup testing for Node.js modules.
 - setup end-to-end tests in Cypress.
-- setup testing for REST end-points.
+- setup [testing](https://github.com/vlucas/frisby) for REST end-points.
 
 ## Metrics
 
