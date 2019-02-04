@@ -21,6 +21,9 @@ const Navigation = () => {
       <Link href='/speech'>
         <a>Speech</a>
       </Link>
+      <Link href='/poses'>
+        <a>Poses</a>
+      </Link>
     </div>
   )
 }
