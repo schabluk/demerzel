@@ -4,12 +4,12 @@
   "description": "Draft Editor",
   "main": "dist/index.js",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "start": "webpack-dev-server --config ../config/webpack.dev.js --disable-host-check --host localhost",
     "build": "webpack --display-modules --config ../config/webpack.build.js"
   },
   "dependencies": {
+    "@mdx-js/runtime": "^0.16.8",
     "draft-js": "^0.10.5"
   },
   "devDependencies": {
@@ -34,8 +34,8 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
-    "react": "next",
-    "react-dom": "next",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "sass-loader": "^7.1.0",
     "size-plugin": "^1.1.1",
     "source-map-loader": "^0.2.4",
