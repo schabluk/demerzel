@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Matches the file snapshot 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "id": 0,
+      "name": "Foo",
+    },
+    Object {
+      "id": 1,
+      "name": "Bar",
+    },
+  ],
+}
+`;

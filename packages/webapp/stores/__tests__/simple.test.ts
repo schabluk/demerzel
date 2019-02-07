@@ -19,10 +19,15 @@ describe('Store initialization', () => {
   })
 })
 
+it('Matches the file snapshot', () => {
+  const list = ListStore.create(snapshot)
+
+  expect(getSnapshot(list)).toMatchSnapshot()
+})
+
 it('Matches the inline snapshot', () => {
   const list = ListStore.create(snapshot)
 
-  // expect(getSnapshot(list)).toMatchSnapshot()
   expect(getSnapshot(list)).toMatchInlineSnapshot(`
 Object {
   "items": Array [
