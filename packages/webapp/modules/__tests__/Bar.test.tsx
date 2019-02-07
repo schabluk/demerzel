@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { render } from 'react-testing-library'
 
-import Bar from '../modules/Bar'
+import Bar from '../Bar'
 
 describe('TypeScript with React Testing Library', () => {
   const expected = 'Hello from Bar on level 1'

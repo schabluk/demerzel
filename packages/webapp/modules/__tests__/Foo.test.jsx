@@ -5,7 +5,7 @@
 import React from 'react'
 import { render } from 'react-testing-library'
 
-import Foo from '../modules/Foo'
+import Foo from '../Foo'
 
 describe('JavaScript with React Testing Library', () => {
   const expected = 'Hello World!'
