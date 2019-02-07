@@ -13,9 +13,9 @@ class Line extends React.Component {
     selection: PropTypes.object,
   }
 
-  onClick = event => {
-    this.props.blockProps.onClickLine(100)
-  }
+  // onClick = event => {
+  //   this.props.blockProps.onClickLine(100)
+  // }
 
   render() {
     const { contentState, block, selection } = this.props
@@ -31,7 +31,7 @@ class Line extends React.Component {
         : cn(styles.line, styles.nums)
 
     return (
-      <div className={className} data-line-number={lineNumber} onClick={this.onClick}>
+      <div className={className} data-line-number={lineNumber}>
         <div className={styles.block}>
           <EditorBlock {...this.props} />
         </div>

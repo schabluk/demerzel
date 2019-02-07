@@ -69,7 +69,7 @@ function DraftEditor({ metaData, readOnly = false, decorators = [] }: IDraftEdit
     <div className={styles.editor} onClick={handleFocusClick}>
       <Editor
         blockStyleFn={blockStyleFn}
-        blockRendererFn={blockRendererFn}
+        // blockRendererFn={blockRendererFn}
         editorState={editorState}
         ref={editorRef}
         readOnly={readOnly}
