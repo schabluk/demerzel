@@ -12,17 +12,8 @@ const Navigation = () => {
       <Link href='/about'>
         <a>About</a>
       </Link>
-      <Link href='/markdown'>
-        <a>Markdown</a>
-      </Link>
       <Link href='/editor'>
         <a>Editor</a>
-      </Link>
-      <Link href='/speech'>
-        <a>Speech</a>
-      </Link>
-      <Link href='/poses'>
-        <a>Poses</a>
       </Link>
     </div>
   )
