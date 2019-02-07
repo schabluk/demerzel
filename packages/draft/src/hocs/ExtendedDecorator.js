@@ -1,3 +1,5 @@
+import memo from 'memoize-one'
+import isEqual from 'lodash.isequal'
 import { List } from 'immutable'
 import { CompositeDecorator } from 'draft-js'
 
@@ -26,4 +28,4 @@ const ExtendedDecorator = (decorators, props) => {
   return new CompositeDecorator(convertedDecorators)
 }
 
-export default ExtendedDecorator
+export default memo(ExtendedDecorator, isEqual)
