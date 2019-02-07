@@ -22,7 +22,7 @@ const MainStore = types
 
     return {
       afterCreate() {
-        // console.log('MainStore afterCreate', API)
+        console.log('MainStore afterCreate', API)
       },
       setTimestamp() {
         self.timestamp = new Date().getTime()
@@ -43,7 +43,7 @@ const MainInterface = types
   .actions(self => {
     return {
       handleSearch() {
-        //
+        console.log('handleSearch', self)
       },
     }
   })

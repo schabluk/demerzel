@@ -30,7 +30,7 @@ const content = {
 const Page = ({ screenSize, classes, store, isServer = false }) => (
   <Container style={{ flex: '1' }}>
     <div className={classes.searchBox}>
-      <Editor metadata={content} />
+      <Editor metaData={content} />
     </div>
   </Container>
 )
@@ -45,8 +45,9 @@ Page.propTypes = {
 const styles = theme => ({
   root: {},
   searchBox: {
-    backgroundColor: 'white',
-    padding: '0.5rem',
+    backgroundColor: '#F8F8F8',
+    boxShadow: '0px 1px 2px 0px rgba(0, 0, 0, 0.3)',
+    borderRadius: '2px',
     margin: '2rem auto',
     width: '600px',
   },

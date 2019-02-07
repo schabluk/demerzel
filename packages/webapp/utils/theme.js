@@ -4,7 +4,9 @@
  * It is passed from Layout using ThemeProvider.
  */
 export default {
-  backgroundColor: '#eee',
-  baseColor: '#eee',
+  backgroundColor: 'lightsteelblue',
+  // backgroundColor: '#222',
+  baseColor: 'lightsteelblue',
+  // baseColor: '#222',
   boxColor: '#ff1c68',
 }
