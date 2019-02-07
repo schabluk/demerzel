@@ -1,24 +1,26 @@
 import { getSnapshot } from 'mobx-state-tree'
 import { ListStore } from '../simple'
 
-it('Initialize with empty list', () => {
-  const list = ListStore.create({})
+const snapshot = {
+  items: [{ id: 0, name: 'Foo' }, { id: 1, name: 'Bar' }],
+}
 
-  expect(list.size).toBe(0)
-})
+describe('Store initialization', () => {
+  it('Initialize with empty list', () => {
+    const list = ListStore.create({})
 
-it('Initialize with two items', () => {
-  const list = ListStore.create({
-    items: [{ id: 0, name: 'Foo' }, { id: 1, name: 'Bar' }],
+    expect(list.size).toBe(0)
   })
 
-  expect(list.size).toBe(2)
+  it('Initialize with two items', () => {
+    const list = ListStore.create(snapshot)
+
+    expect(list.size).toBe(2)
+  })
 })
 
 it('Matches the inline snapshot', () => {
-  const list = ListStore.create({
-    items: [{ id: 0, name: 'Foo' }, { id: 1, name: 'Bar' }],
-  })
+  const list = ListStore.create(snapshot)
 
   // expect(getSnapshot(list)).toMatchSnapshot()
   expect(getSnapshot(list)).toMatchInlineSnapshot(`
