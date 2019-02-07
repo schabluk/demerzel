@@ -3,9 +3,10 @@
  */
 
 import * as React from 'react'
+import renderer from 'react-test-renderer'
 import { render } from 'react-testing-library'
 
-import Editor from './index'
+import Editor from '../src/index'
 
 describe('TypeScript with React Testing Library', () => {
   const expected = 'Hello'
@@ -23,6 +24,15 @@ describe('TypeScript with React Testing Library', () => {
     ],
     entityMap: {},
   }
+
+  /**
+   * Cannot be used with Editor, because it renders with generated keys in attributes,
+   * for example "data-editor".
+   */
+  it('Renders correctly', () => {
+    const tree = renderer.create(<div>{expected}</div>).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 
   it(`Shows "${expected}"`, () => {
     const { getByText } = render(<Editor metaData={metaData} />)
